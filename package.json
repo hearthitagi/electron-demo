@@ -1,0 +1,55 @@
+{
+  "name": "electron-desktop-tool",
+  "version": "1.0.6",
+  "main": "main.js",
+  "author": {
+    "name": "cai",
+    "email": "1760603940@qq.com"
+  },
+  "license": "ISC",
+  "description": "demo",
+  "homepage": "https://github.com/hearthitagi",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.cai.electrondemo",
+    "productName": "ElectronDeskTopTool",
+    "directories": {
+      "output": "dist"
+    },
+    "linux": {
+      "target": "deb",
+      "category": "Utility"
+    },
+    "deb": {
+      "afterInstall": "./entries/install.sh"
+    },
+    "extraFiles": [
+      {
+        "from": "entries",
+        "to": "entries"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": false,
+      "deleteAppDataOnUninstall": true
+    }
+  }
+}
