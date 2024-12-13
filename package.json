@@ -11,11 +11,13 @@
   "homepage": "https://github.com/hearthitagi",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "electron-builder",
+    "build:icon": "electron-icon-builder --input=./public/icon.png --output=release --flatten"
   },
   "devDependencies": {
     "electron": "^33.2.1",
-    "electron-builder": "^25.1.8"
+    "electron-builder": "^25.1.8",
+    "electron-icon-builder": "^2.0.1"
   },
   "build": {
     "appId": "com.cai.electrondemo",
@@ -24,6 +26,7 @@
       "output": "dist"
     },
     "linux": {
+      "icon": "./release/icons",
       "target": "deb",
       "category": "Utility"
     },
@@ -37,6 +40,7 @@
       }
     ],
     "win": {
+      "icon": "./release/icons",
       "target": [
         "nsis",
         "zip"
