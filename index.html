@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <title>ip修改工具</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-
-
-    <div id="jiekou">接口返回</div>
-    <button id="btn-request">点击请求接口</button>
+    <label for="ipInput">输入要修改成的ip：</label>
+    <input type="text" id="ipInput">
+    <button id="btn-request">确认修改</button>
+    <div id="checkResult"></div>
+    <div>
+      <span id="test-msg"></span>
+      <button id="request-test">接口测试</button>
+    </div>
   </body>
   <script src="./renderer.js"></script>
 </html>
