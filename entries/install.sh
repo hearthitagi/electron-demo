@@ -1,43 +1,5 @@
 #! /bin/sh
 
-desktopPath=/opt/ElectronDeskTopTool/entries/ElectronDeskTopTool.desktop
-
-rootDesktop=/root/Desktop
-
-if [ -d $rootDesktop ]; then
-
-  cp $desktopPath $rootDesktop
-
-fi
-
-users=`users`
-
-for u in $users
-
-  do
-
-  dir=/home/$u/Desktop
-
-  cndir=/home/$u/桌面
-
-  if [ -d $dir ]; then
-
-    cp $desktopPath $dir;
-
-    chmod 777 $dir/ElectronDeskTopTool.desktop;
-
-  fi
-
-  if [ -d $cndir ]; then
-
-    cp $desktopPath $cndir;
-
-    chmod 777 $cndir/ElectronDeskTopTool.desktop
-
-  fi
-
-done
-
 # 设置 chrome-sandbox 的所有者为 root 并设置正确的权限
 # 确保使用正确的路径到您的 chrome-sandbox 文件
 chromeSandboxPath="/opt/ElectronDeskTopTool/chrome-sandbox"
