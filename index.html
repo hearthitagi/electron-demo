@@ -2,19 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>ip修改工具</title>
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <script src="./renderer.js"></script>
   </head>
   <body>
-    <label for="ipInput">输入要修改成的ip：</label>
-    <input type="text" id="ipInput">
-    <button id="modify-hosts">确认修改</button>
-    <div id="checkResult"></div>
-    <button id="run-sh">执行脚本</button>
-    <div>
-      <span id="test-msg"></span>
-      <button id="request-test">接口测试</button>
+    <div class="ipchange-wrap">
+      <label for="ipInput" class="ipchange-label">输入ip：</label>
+      <div id="inputWrap">
+        <input type="text" id="ipInput">
+      </div>
+      <button id="modify-hosts">确认修改</button>
+      <button id="run-sh">重启</button>
+      <div>
+        <span id="test-msg"></span>
+        <button id="request-test">接口测试</button>
+      </div>
     </div>
+    <div id="resResult"></div>
   </body>
   <script src="./renderer.js"></script>
 </html>
