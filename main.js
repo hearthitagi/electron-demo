@@ -19,9 +19,9 @@ const createWindow = () => {
 
   // 加载 index.html
   if (process.platform === 'win32') {
-    mainWindow.loadFile('win32.html')
+    mainWindow.loadFile('./paltform/win32/win32.html')
   }else if(process.platform === 'linux'){
-    mainWindow.loadFile('index.html')
+    mainWindow.loadFile('./paltform/linux/linux.html')
   }
   // 打开开发工具
   mainWindow.webContents.openDevTools()
