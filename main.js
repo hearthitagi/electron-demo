@@ -18,8 +18,11 @@ const createWindow = () => {
   })
 
   // 加载 index.html
-  mainWindow.loadFile('index.html')
-
+  if (process.platform === 'win32') {
+    mainWindow.loadFile('win32.html')
+  }else if(process.platform === 'linux'){
+    mainWindow.loadFile('index.html')
+  }
   // 打开开发工具
   mainWindow.webContents.openDevTools()
 }
