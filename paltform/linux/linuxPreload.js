@@ -1,9 +1,7 @@
-// preload.js
-window.require = require;
-const { contextBridge, ipcRenderer } = require('electron/renderer')
+const { contextBridge, ipcRenderer } = require('electron');
 
 
-contextBridge.exposeInMainWorld('electronAPI', {
+contextBridge.exposeInMainWorld('linuxAPI', {
     request: (...response) => ipcRenderer.invoke('http-request', ...response),
     modifyFiles: (...response) => ipcRenderer.invoke('modify-files', ...response),
 })

@@ -7,10 +7,7 @@ const runShDom = document.getElementById("run-sh")
 const modifyHostsDom = document.getElementById("modify-hosts")
 const resResultDom = document.getElementById("resResult")
 let styleSheet = document.styleSheets[0];
-// 去除空行
-function removeEmptyLines(str) {
-    return str.replace(/^\s*$/gm, '').replace(/\n{2,}/g, '\n');
-}
+
 // 修改ip
 modifyHostsDom.addEventListener('click', async () => {
     try {
@@ -22,7 +19,7 @@ modifyHostsDom.addEventListener('click', async () => {
                 }
             }
         } else {
-            const res = await window.electronAPI.modifyFiles(ipDom.value)
+            const res = await window.linuxAPI.modifyFiles(ipDom.value)
             resResultDom.style.display = 'block'
             resResultDom.innerText += removeEmptyLines(res)
             console.log(removeEmptyLines(res))
@@ -34,6 +31,25 @@ modifyHostsDom.addEventListener('click', async () => {
     }
 
 });
+
+//接口测试
+testBtnDom.addEventListener('click', async () => {
+    const res = await window.linuxAPI.request(`https://api.kuleu.com/api/suijimima`)
+    console.log(res);
+    testMsgDom.innerText = res.data.password_box[0]
+    // const res = await window.linuxAPI.request(`https://192.168.2.14/backend-api/api/getRobotList`)
+    // const Paylod = {
+    //     method: "POST",
+    //     body: JSON.stringify({ page: 1, count: 20, robotId: 1 }),
+    //     headers: { 'Content-Type': 'application/json' }
+    // }
+    // const res1 = await window.linuxAPI.request(`https://192.168.2.14/backend-api/api/getAlarmAlert`, Paylod)
+    // console.log(res1);
+    // if (res1) {
+    //     const element = document.getElementById("jiekou")
+    //     element.innerText = text
+    // }
+})
 // 失焦验证ip
 ipDom.addEventListener('blur', () => {
     if (ipReg.test(ipDom.value)) {
@@ -56,22 +72,7 @@ ipDom.addEventListener('focus', () => {
     resResultDom.innerText = ''
     resResultDom.style.display = 'none'
 })
-
-//接口测试
-testBtnDom.addEventListener('click', async () => {
-    const res = await window.electronAPI.request(`https://api.kuleu.com/api/suijimima`)
-    console.log(res);
-    testMsgDom.innerText = res.data.password_box[0]
-    // const res = await window.electronAPI.request(`https://192.168.2.14/backend-api/api/getRobotList`)
-    // const Paylod = {
-    //     method: "POST",
-    //     body: JSON.stringify({ page: 1, count: 20, robotId: 1 }),
-    //     headers: { 'Content-Type': 'application/json' }
-    // }
-    // const res1 = await window.electronAPI.request(`https://192.168.2.14/backend-api/api/getAlarmAlert`, Paylod)
-    // console.log(res1);
-    // if (res1) {
-    //     const element = document.getElementById("jiekou")
-    //     element.innerText = text
-    // }
-})
+// 去除空行
+function removeEmptyLines(str) {
+    return str.replace(/^\s*$/gm, '').replace(/\n{2,}/g, '\n');
+}
