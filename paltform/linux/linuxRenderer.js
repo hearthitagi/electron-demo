@@ -1,9 +1,5 @@
-const testMsgDom = document.getElementById('test-msg')
-const testBtnDom = document.getElementById('request-test')
-
 const ipReg = /^(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]|[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]|[0-9])){3}$/
 const ipDom = document.getElementById('ipInput')
-const runShDom = document.getElementById("run-sh")
 const modifyHostsDom = document.getElementById("modify-hosts")
 const resResultDom = document.getElementById("resResult")
 let styleSheet = document.styleSheets[0];
@@ -19,7 +15,7 @@ modifyHostsDom.addEventListener('click', async () => {
                 }
             }
         } else {
-            const res = await window.linuxAPI.modifyFiles(ipDom.value)
+            const res = await window.linuxAPI.commandApi('modify-files',ipDom.value)
             resResultDom.style.display = 'block'
             resResultDom.innerText += removeEmptyLines(res)
             console.log(removeEmptyLines(res))
@@ -32,24 +28,6 @@ modifyHostsDom.addEventListener('click', async () => {
 
 });
 
-//接口测试
-testBtnDom.addEventListener('click', async () => {
-    const res = await window.linuxAPI.request(`https://api.kuleu.com/api/suijimima`)
-    console.log(res);
-    testMsgDom.innerText = res.data.password_box[0]
-    // const res = await window.linuxAPI.request(`https://192.168.2.14/backend-api/api/getRobotList`)
-    // const Paylod = {
-    //     method: "POST",
-    //     body: JSON.stringify({ page: 1, count: 20, robotId: 1 }),
-    //     headers: { 'Content-Type': 'application/json' }
-    // }
-    // const res1 = await window.linuxAPI.request(`https://192.168.2.14/backend-api/api/getAlarmAlert`, Paylod)
-    // console.log(res1);
-    // if (res1) {
-    //     const element = document.getElementById("jiekou")
-    //     element.innerText = text
-    // }
-})
 // 失焦验证ip
 ipDom.addEventListener('blur', () => {
     if (ipReg.test(ipDom.value)) {

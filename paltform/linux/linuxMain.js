@@ -6,7 +6,6 @@ module.exports = () => {
     const { net } = require('electron')
 
     ipcMain.handle('modify-files', dealFiles) //修改文件
-    ipcMain.handle('http-request', handleRequest) // 接口请求
 
     // 修改文件
     async function dealFiles(event, ip) {
@@ -149,29 +148,6 @@ module.exports = () => {
                     }
                 });
             })
-        }
-    }
-    // 接口请求
-    async function handleRequest(event, ...args) {
-        try {
-            if (args.length === 2) {
-                const response = await net.fetch(args[0], args[1])
-                if (response.ok) {
-                    return response.json()
-                } else {
-                    return '接口请求错误'
-                }
-            } else if (args.length === 1) {
-                const response = await net.fetch(args[0])
-                console.log(response);
-                if (response.ok) {
-                    return response.json()
-                } else {
-                    return '接口请求错误'
-                }
-            }
-        } catch (error) {
-            return error
         }
     }
 }

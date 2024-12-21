@@ -2,8 +2,12 @@ const { contextBridge, ipcRenderer } = require('electron');
 
 
 contextBridge.exposeInMainWorld('linuxAPI', {
-    request: (...response) => ipcRenderer.invoke('http-request', ...response),
-    modifyFiles: (...response) => ipcRenderer.invoke('modify-files', ...response),
+    commandApi: (channel, data) => {
+        const validChannels = ['modify-files']; // 定义允许的通道
+        if (validChannels.includes(channel)) {
+            ipcRenderer.invoke(channel, data);
+        }
+    },
 })
 
 // 所有的 Node.js API接口 都可以在 preload 进程中被调用.
