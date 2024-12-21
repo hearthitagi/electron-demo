@@ -1,7 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 
-contextBridge.exposeInMainWorld('linuxAPI', {
+contextBridge.exposeInMainWorld('linuxApi', {
     commandApi: (channel, data) => {
         const validChannels = ['modify-files']; // 定义允许的通道
         if (validChannels.includes(channel)) {

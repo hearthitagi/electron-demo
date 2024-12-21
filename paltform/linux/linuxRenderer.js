@@ -15,7 +15,7 @@ modifyHostsDom.addEventListener('click', async () => {
                 }
             }
         } else {
-            const res = await window.linuxAPI.commandApi('modify-files',ipDom.value)
+            const res = await window.linuxApi.commandApi('modify-files',ipDom.value)
             resResultDom.style.display = 'block'
             resResultDom.innerText += removeEmptyLines(res)
             console.log(removeEmptyLines(res))
