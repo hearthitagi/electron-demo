@@ -5,7 +5,7 @@ contextBridge.exposeInMainWorld('linuxApi', {
     commandApi: (channel, data) => {
         const validChannels = ['modify-files']; // 定义允许的通道
         if (validChannels.includes(channel)) {
-            ipcRenderer.invoke(channel, data);
+            return ipcRenderer.invoke(channel, data);
         }
     },
 })

@@ -6,7 +6,7 @@ contextBridge.exposeInMainWorld('win32Api', {
     fetchApi: (channel, data) => {
         const validChannels = ['toMainGetApi', 'toMainPostApi']; // 定义允许的通道
         if (validChannels.includes(channel)) {
-            ipcRenderer.invoke(channel, data);
+            return ipcRenderer.invoke(channel, data);
         }
     },
 })
@@ -16,13 +16,13 @@ contextBridge.exposeInMainWorld('win32Affair', {
     send: (channel, data) => {
         const validChannels = ['toMain']; // 定义允许的通道
         if (validChannels.includes(channel)) {
-            ipcRenderer.send(channel, data);
+            return ipcRenderer.send(channel, data);
         }
     },
     receive: (channel, callback) => {
         const validChannels = ['fromMain']; // 定义允许的通道
         if (validChannels.includes(channel)) {
-            ipcRenderer.on(channel, (event, ...args) => callback(...args));
+            return ipcRenderer.on(channel, (event, ...args) => callback(...args));
         }
     },
 });
