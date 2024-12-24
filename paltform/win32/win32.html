@@ -4,32 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>更新文件打包工具</title>
-  <script src="../../assets/vue.global.js"></script>
-  <link rel="stylesheet" href="../../assets/element/index.css">
-  <script src="../../assets/element/index.full.js"></script>
-
   <link rel="stylesheet" href="../../assets/css/win32Index.css">
+  <link rel="stylesheet" href="../../assets/layui/css/layui.css">
 </head>
 
 <body>
   <div id="app">
-    <el-button class="test-btn">事务进程</el-button>
-    <el-button class="testapi-btn">接口进程</el-button>
-    
+    <div class="update-main-wrap">
+      <button type="button" class="layui-btn layui-btn-sm test-btn">事务进程</button>
+      <button type="button" class="layui-btn layui-btn-sm testapi-btn">接口进程</button>
+
+      <div class="layui-upload">
+        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm" id="ID-upload-demo-files">选择文件</button>
+        <button type="button" class="layui-btn layui-btn-sm" id="ID-upload-demo-files-action">开始上传</button>
+        <div class="layui-upload-list">
+          <table class="layui-table">
+            <colgroup>
+              <col style="min-width: 100px;">
+              <col width="150">
+              <col width="260">
+              <col width="150">
+            </colgroup>
+            <thead>
+              <th>文件名</th>
+              <th>大小</th>
+              <th>上传进度</th>
+              <th>操作</th>
+            </thead>
+            <tbody id="ID-upload-demo-files-list"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-  <script>
-    const App = {
-      data() {
-        return {
-          message: "Hello Element Plus",
-        };
-      },
-    };
-    const app = Vue.createApp(App);
-    app.use(ElementPlus);
-    app.mount("#app");
-  </script>
 </body>
+<script src="../../assets/layui/layui.js"></script>
+<script src="./win32Renderer.js"></script>
 
 </html>
-<script src="./win32Renderer.js"></script>

@@ -2,7 +2,7 @@
 
 # 设置 chrome-sandbox 的所有者为 root 并设置正确的权限
 # 确保使用正确的路径到您的 chrome-sandbox 文件
-chromeSandboxPath="/opt/ElectronDeskTopTool/chrome-sandbox"
+chromeSandboxPath="/opt/ElectronDemo/chrome-sandbox"
 
 # 检查 chrome-sandbox 文件是否存在
 if [ -f "$chromeSandboxPath" ]; then

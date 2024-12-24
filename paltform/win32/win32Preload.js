@@ -1,12 +1,11 @@
 // preload.js
 const { contextBridge, ipcRenderer } = require('electron');
 
-
 contextBridge.exposeInMainWorld('win32Api', {
     fetchApi: (channel, data) => {
         const validChannels = ['toMainGetApi', 'toMainPostApi']; // 定义允许的通道
         if (validChannels.includes(channel)) {
-            return ipcRenderer.invoke(channel, data);
+           return ipcRenderer.invoke(channel, data);
         }
     },
 })
@@ -20,7 +19,7 @@ contextBridge.exposeInMainWorld('win32Affair', {
         }
     },
     receive: (channel, callback) => {
-        const validChannels = ['fromMain']; // 定义允许的通道
+        const validChannels = ['fromMain','upload-progress']; // 定义允许的通道
         if (validChannels.includes(channel)) {
             return ipcRenderer.on(channel, (event, ...args) => callback(...args));
         }

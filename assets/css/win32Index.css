@@ -8,54 +8,18 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
-.ipchange-label{
-    color: #fff;
-}
-.ipchange-wrap{
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-button{
-    margin-left: 7px;
-    background-color: #023B3B!important;
-	box-shadow: none!important;
-	border: 1px solid #24B2AE!important;
-	color: #fff!important;
-    cursor: pointer;
-    border-radius: 4px;
-}
-#ipInput{
-    background-color: #0F4C4A !important;
-    box-shadow: none !important;
-    outline: none;
-    box-shadow: none;
-    color: #fff;
-    height: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
-#ipInput:focus{
-    border:1px solid #24B2AE
-}
-#inputWrap{
-    position: relative;
-}
-#inputWrap::after{
-    content: var(--text);
-    display: block;
-    position: absolute;
-    color: #fff;
-    top: 30px;
-    left: 0;
-}
-#resResult{
-    display: none;
-    color: #fff;
-    height: 50vh;
+#app{
     width: 100%;
-    overflow-y: auto;
-    background: #000;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.update-main-wrap{
+    background-color: rgba(255,255,255,.2);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 5px #ddd;
+    border-radius: 5px;
+    width: 80%;
+    height: 80%;
 }
