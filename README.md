@@ -4,3 +4,5 @@
 - 降级项目中electron-builder到@24.6.3
 - 手动替换 [第二个zip文件](https://github.com/electron-userland/electron-builder-binaries/releases/tag/winCodeSign-2.6.0)到`%LOCALAPPDATA%\electron-builder\Cache\winCodeSign\winCodeSign-2.6.0\`
 
+<img src="https://github.com/fluidicon.png" width="60%" />
+![GitHub Icon](https://github.com/fluidicon.png)
